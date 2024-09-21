@@ -1,0 +1,9 @@
+FROM hyperledger/fabric-peer:2.4
+
+WORKDIR /opt/gopath/src/github.com/hyperledger/fabric
+
+COPY . .
+
+RUN go build -o account_manager account_manager.go
+
+CMD ["account_manager"]

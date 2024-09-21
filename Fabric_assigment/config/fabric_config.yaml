@@ -1,0 +1,45 @@
+version: 2.0
+
+network:
+  name: mynetwork
+  description: My network
+
+organizations:
+  - name: org1
+    mspid: org1MSP
+    peers:
+      - peer1
+      - peer2
+  - name: org2
+    mspid: org2MSP
+    peers:
+      - peer3
+      - peer4
+
+orderers:
+  - name: orderer1
+    mspid: ordererMSP
+    url: grpc://localhost:7050
+
+peers:
+  - name: peer1
+    mspid: org1MSP
+    url: grpc://localhost:7051
+  - name: peer2
+    mspid: org1MSP
+    url: grpc://localhost:7052
+  - name: peer3
+    mspid: org2MSP
+    url: grpc://localhost:7053
+  - name: peer4
+    mspid: org2MSP
+    url: grpc://localhost:7054
+
+channels:
+  - name: mychannel
+    description: My channel
+    peers:
+      - peer1
+      - peer2
+      - peer3
+      - peer4

@@ -1,0 +1,20 @@
+version: 2.0
+
+peer:
+  id:
+    name: peer1
+    mspid: org1MSP
+  address:
+    host: localhost
+    port: 7051
+  tls:
+    enabled: true
+    cert:
+      file: peer1-cert.pem
+    key:
+      file: peer1-key.pem
+  gossip:
+    bootstrap:
+      - peer2:7052
+      - peer3:7053
+      - peer4:7054

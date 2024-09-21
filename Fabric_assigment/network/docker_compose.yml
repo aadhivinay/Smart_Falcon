@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  peer1:
+    build: .
+    environment:
+      - CORE_PEER_ID=peer1
+      - CORE_PEER_ADDRESS=peer1:7051
+      - CORE_PEER_LOCALMSPID=org1MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=peer1-cert.pem
+      - CORE_PEER_TLS_KEY_FILE=peer1-key.pem
+    ports:
+      - "7051:7051"
+    depends_on:
+      - orderer1
+
+  peer2:
+    build: .
+    environment:
+      - CORE_PEER_ID=peer2
+      - CORE_PEER_ADDRESS=peer2:7052
+      - CORE_PEER_LOCALMSPID=org1MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=peer2-cert.pem
+      - CORE_PEER_TLS_KEY_FILE=peer2-key.pem
+    ports:
+      - "7052:7052"
+    depends_on:
+      - orderer1
+
+  peer3:
+    build: .
+    environment:
+      - CORE_PEER_ID=peer3
+      - CORE_PEER_ADDRESS=peer3:7053
+      - CORE_PEER_LOCALMSPID=org2MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=peer3-cert.pem
+      - CORE_PEER_TLS_KEY_FILE=peer3-key.pem
+    ports:
+      - "7053:7053"
+    depends_on:
+      - orderer1
+
+  peer4:
+    build: .
+    environment:
+      - CORE_PEER_ID=peer4
+      - CORE_PEER_ADDRESS=peer4:7054
+      - CORE_PEER_LOCALMSPID=org2MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=peer4-cert.pem
+      - CORE_PEER_TLS_KEY_FILE=peer4-key.pem
+    ports:
+      - "7054:7054"
+    depends_on:
+      - orderer1
+
+  orderer1:
+    build: .
+    environment:
+      - ORDERER_ID=orderer1
+      - ORDERER_ADDRESS=orderer1:7050
+      - ORDERER_LOCALMSPID=ordererMSP
+      - ORDERER_TLS_ENABLED=true
+      - ORDERER_TLS_CERT_FILE=orderer1-cert.pem
+      - ORDERER_TLS_KEY_FILE=orderer1-key.pem
+    ports:
+      - "7050:7050"

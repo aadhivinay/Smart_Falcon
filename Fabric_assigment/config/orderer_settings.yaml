@@ -1,0 +1,15 @@
+version: 2.0
+
+orderer:
+  id:
+    name: orderer1
+    mspid: ordererMSP
+  address:
+    host: localhost
+    port: 7050
+  tls:
+    enabled: true
+    cert:
+      file: orderer1-cert.pem
+    key:
+ file: orderer1-key.pem

@@ -1,0 +1,43 @@
+{
+    "network": {
+      "name": "mynetwork",
+      "description": "My network"
+    },
+    "organizations": [
+      {
+        "name": "org1",
+        "mspId": "org1MSP",
+        "peers": [
+          "peer1",
+          "peer2"
+        ]
+      },
+      {
+        "name": "org2",
+        "mspId": "org2MSP",
+        "peers": [
+          "peer3",
+          "peer4"
+        ]
+      }
+    ],
+    "orderers": [
+      {
+        "name": "orderer1",
+        "mspId": "ordererMSP",
+        "url": "grpc://localhost:7050"
+      }
+    ],
+    "channels": [
+      {
+        "name": "mychannel",
+        "description": "My channel",
+        "peers": [
+          "peer1",
+          "peer2",
+          "peer3",
+          "peer4"
+        ]
+      }
+    ]
+  }
